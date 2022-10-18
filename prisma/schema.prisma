@@ -11,6 +11,7 @@ datasource db {
 }
 
 
+
 model Trial {
   id        Int      @id @default(autoincrement())
   name      String
