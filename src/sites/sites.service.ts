@@ -15,7 +15,7 @@ export class SitesService {
     let payload = {
       data: {
         ...result,
-        users: {
+        administators: {
           connect: usersData,
         },
       },
@@ -31,7 +31,7 @@ export class SitesService {
 
   async findAll() {
     const sites = await this.prisma.site.findMany({
-      include: { trials: true, patients: true, users: true },
+      include: { associated_trials: true, patients: true, administators: true },
     });
 
     if (!sites) {
@@ -44,7 +44,7 @@ export class SitesService {
   async findOne(id: number) {
     const site = await this.prisma.site.findUnique({
       where: { id },
-      include: { trials: true, patients: true, users: true },
+      include: { associated_trials: true, patients: true, administators: true },
     });
 
     if (!site) {
@@ -67,7 +67,7 @@ export class SitesService {
     } else {
       payload = {
         ...result,
-        users: {
+        administators: {
           connect: usersData,
         },
       };

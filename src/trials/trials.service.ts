@@ -32,7 +32,7 @@ export class TrialsService {
   async findAll() {
     const trials = await this.prisma.trial.findMany({
       include: {
-        sites: true,
+        associated_sites: true,
       },
     });
 
@@ -46,7 +46,7 @@ export class TrialsService {
   async findOne(id: number) {
     const trial = await this.prisma.trial.findUnique({
       where: { id },
-      include: { sites: true },
+      include: { associated_sites: true },
     });
 
     if (!trial) {
