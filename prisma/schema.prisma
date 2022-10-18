@@ -18,8 +18,8 @@ model Trial {
   start_date DateTime
   end_date DateTime
   is_active Boolean
-  sites Site[]
-  users User[]
+  associated_sites Site[]
+  administators User[]
   patients Patient[]
 }
 
@@ -35,8 +35,8 @@ model Site {
   is_active Boolean
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  trials Trial[]
-  users User[]
+  associated_trials Trial[]
+  administators User[]
   patients Patient[]
 }
 
