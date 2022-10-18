@@ -15,7 +15,7 @@ export class TrialsService {
     let payload = {
       data: {
         ...result,
-        sites: {
+        associated_sites: {
           connect: sitesData,
         },
       },
@@ -69,7 +69,7 @@ export class TrialsService {
     } else {
       payload = {
         ...result,
-        sites: {
+        associated_sites: {
           connect: sitesData,
         },
       };
