@@ -46,7 +46,7 @@ export class PatientsService {
   }
 
   async findOne(id: number) {
-    const patient = await this.prisma.user.findUnique({
+    const patient = await this.prisma.patient.findUnique({
       where: { id },
       include: { sites: true, trials: true },
     });
